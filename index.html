@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Timer</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="jquery-1.12.0.min.js"></script>
+	<script type="text/javascript">
+		var date, dateCor;
+		$(document).ready(function() {
+			var timeReal = setInterval(function() {
+				date = new Date();
+				var hR = date.getHours();
+				var mR = date.getMinutes();
+				var sR = date.getSeconds();
+				if (hR < 10) {hR = "0" + hR};
+				if (mR < 10) {mR = "0" + mR};
+				if (sR < 10) {sR = "0" + sR};
+				document.getElementById('realTime').innerHTML = hR + ":" + mR + ":" + sR;
+			}, 0);
+		});
+		$(document).ready(function() {
+			$("#cor").bind("click", function() {
+				var timeCorr = setInterval(function() {
+					var str = date.getTime();
+					var inp = $('#cor').val();
+					var strCor = str + inp * 1000;
+					dateCor = new Date(strCor);
+					var hC = dateCor.getHours();
+					var mC = dateCor.getMinutes();
+					var sC = dateCor.getSeconds();
+					if (hC < 10) {hC = "0" + hC};
+					if (mC < 10) {mC = "0" + mC};
+					if (sC < 10) {sC = "0" + sC};
+					document.getElementById('corTime').innerHTML = hC + ":" + mC + ":" + sC;
+				}, 0);
+			});
+		});
+		$(document).ready(function() {
+			$("#cdh").bind("click", function() {
+				var timeCd = setInterval(function() {
+					var inph = $('#cdh').val();
+					var inpm = $('#cdm').val();
+					var inps = $('#cds').val();
+					var inp = inph + ":" + inpm + ":" + inps;
+					var a = dateCor.getTime();
+					var strCd = dateCor.toString();
+					var r = strCd.replace(/[0-9]{2}:[0-9]{2}:[0-9]{2}/i, inp);
+					var dateCd = new Date(r);
+					var a1 = dateCd.getTime();
+					var res = Math.abs(a1 - a);
+					var h = Math.floor((res/3600000)%60);
+					var m = Math.floor((res/60000)%60);
+					var s = Math.floor((res/1000)%60);
+					if (h < 10) {h = "0" + h};
+					if (m < 10) {m = "0" + m};
+					if (s < 10) {s = "0" + s};
+					var x = h + ":" + m + ":" + s;
+					document.getElementById('cdTime').innerHTML = h + ":" + m + ":" + s;
+					if (x == "00:00:00") {
+						clearInterval(timeCd);
+						document.getElementById('cdTime').innerHTML = "Time's up";
+						var k = 0;
+						var blik = setInterval(function() {
+							k++;
+							if ((k % 2) == 0) {
+								$("#cdTime").css("background-color", "red");
+							}else {
+								$("#cdTime").css("background-color", "blue");
+							}
+							if (k == 10) {
+								clearInterval(blik);
+								$("#cdTime").css("background-color", "#aabbff");
+							}
+						}, 1000);
+					}
+				}, 0);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<div>
+			<p class="title">Real Time</p>
+			<p><span id="realTime">00:00:00</span></p>
+		</div>
+		<hr />
+		<div>
+			<p class="title">Correction Time</p>
+			<p><input type="text" id="cor" placeholder="seconds" size="5" /></p>
+			<p><span id="corTime">00:00:00</span></p>
+		</div>
+		<hr />
+		<div>
+			<p class="title">Countdown Time</p>
+			<p>
+				<input type="text" id="cdh" size="1" /> :
+				<input type="text" id="cdm" size="1" /> :
+				<input type="text" id="cds" size="1" />
+			</p>
+			<p><span id="cdTime">00:00:00</span></p>
+		</div>
+		<hr />
+		<div>
+			<p class="vers">Prodused by Serg. &copy All rights reserved</p>
+			<p class="vers">version 1.0</p>
+		</div>
+	</div>
+</body>
+</html>

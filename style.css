@@ -1,0 +1,78 @@
+* {margin: 0; padding: 0;}
+
+body {
+	margin: 1%;
+	padding: 1%;
+	text-align: center;
+	font-size: 150%;
+	/*
+	outline: 1px solid red;
+	*/
+}
+
+div {
+	margin: 1%;
+	/*
+	outline: 1px solid red;
+	*/
+}
+
+#wrap {
+	margin: 5%;
+	padding: 1%;
+	background-color: #BED1E4;
+	border: 1px solid black;
+	border-radius: 50px;
+	/*
+	*/
+}
+
+p input {
+	margin: 0 0 1% 0;
+	padding: 0 1% 0 1%;
+	font-size: 70%;
+	background-color: #D6D3D6;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 5px;
+	box-shadow: 3px 3px 3px gray;
+	/*
+	*/
+}
+
+span {
+	margin: 1%;
+	padding: 0 1% 0 1% ;
+	font-size: 150%;
+	background-color: #aabbff;
+	border: 1px solid black;
+	border-radius: 15px;
+	box-shadow: 5px 5px 5px gray;
+	/*
+	*/
+}
+
+#cdTime {
+	font-size: 200%;
+	/*
+	*/
+}
+
+.title {
+	text-shadow: 1px 1px;
+	/*
+	outline: 1px solid red;
+	margin: 1%;
+	padding: 1%;
+	font-size: 150%;
+	*/
+}
+
+.vers {
+	font-size: 50%;
+	/*
+	outline: 1px solid red;
+	margin: 1%;
+	padding: 1%;
+	*/
+}
