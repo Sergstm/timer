@@ -39,6 +39,8 @@
 		$(document).ready(function() {
 			$("#cdh").bind("click", function() {
 				var timeCd = setInterval(function() {
+					// 192.168.131.18
+					// 192.168.1.37
 					var inph = $('#cdh').val();
 					var inpm = $('#cdm').val();
 					var inps = $('#cds').val();
@@ -49,9 +51,9 @@
 					var dateCd = new Date(r);
 					var a1 = dateCd.getTime();
 					var res = Math.abs(a1 - a);
-					var h = Math.floor((res/3600000)%60);
-					var m = Math.floor((res/60000)%60);
-					var s = Math.floor((res/1000)%60);
+					var h = Math.floor((res / 3600000) % 60);
+					var m = Math.floor((res / 60000) % 60);
+					var s = Math.floor((res / 1000) % 60);
 					if (h < 10) {h = "0" + h};
 					if (m < 10) {m = "0" + m};
 					if (s < 10) {s = "0" + s};
@@ -82,7 +84,7 @@
 <body>
 	<div id="wrap">
 		<div class="block">
-			<p class="title">Real Time</p>
+			<p class="title">System Time</p>
 			<p><span id="realTime">00:00:00</span></p>
 		</div>
 		<hr />
