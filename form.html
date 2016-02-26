@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Form</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<script type="text/javascript" src="jquery-1.12.0.min.js"></script>
+	<script type="text/javascript">
+		var count = 1, x;
+		$(document).ready(function(){
+			$(document).on("click", "#add", function(){
+				$("<p><input type='text' class='inp' /></p>").insertBefore("#add");
+				count++;
+			});
+		});
+		$(document).ready(function(){
+			$(document).on("click", "#run", function(){
+				var arr = new Array();
+				for (var i = 0; i < count; i++) {
+					x = i;
+					a = $(".inp:eq(x)").val();
+					var r =  a +" "+ x +" "+ count
+					//document.getElementById('out').innerHTML = x;
+					alert(r);
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<form action="form.html" name="form">
+		<p><input type="text" class="inp" /></p>
+		<input type="button" id="add" value="Add field" />
+		<input type="button" id="run" value="Run" />
+	</form>
+	<br />
+	<span id="out">1</span>
+</body>
+</html>
