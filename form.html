@@ -16,9 +16,8 @@
 			$(document).on("click", "#run", function(){
 				var arr = new Array();
 				for (var i = 0; i < count; i++) {
-					x = i;
 					a = $(".inp:eq(x)").val();
-					var r =  a +" "+ x +" "+ count
+					var r =  a +"_"+ i +"_"+ count
 					//document.getElementById('out').innerHTML = x;
 					alert(r);
 				}
